@@ -1,0 +1,8 @@
+div{
+    display: flex;
+}
+
+.nums{
+    border: black 1px solid;
+    padding: 10px;
+}
