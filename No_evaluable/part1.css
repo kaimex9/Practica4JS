@@ -2,6 +2,13 @@ div{
     display: flex;
 }
 
+#lista_nums2{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 150px;
+    
+}
+
 .nums{
     border: black 1px solid;
     padding: 10px;
