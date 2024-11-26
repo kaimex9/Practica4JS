@@ -14,7 +14,12 @@
 .d1,
 .d2,
 .d3 {
+    display: flex;
+    flex-wrap: wrap;
     text-align: center;
+    width: 200px;
+    justify-content: center;
+    margin: 0px 10px 0px 10px;
 }
 
 .content{
@@ -33,20 +38,27 @@
 .n1 {
     background-color: red;
     width: 80px;
+    height: 20px;
 }
 .n2 {
     background-color: orange;
     width: 100px;
+    height: 20px;
 }
 .n3 {
     background-color: yellow;
     width: 120px;
+    height: 20px;
 }
 .n4 {
     background-color: green;
     width: 140px;
+    height: 20px;
 }
 .n5 {
     background-color: blue;
     width: 160px;
+    height: 20px;
 }
+
+/*Crear una nueva clase para cajas en blanco*/
