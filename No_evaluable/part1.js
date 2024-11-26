@@ -50,3 +50,15 @@ document.getElementById("ej4").onclick = function () {
         lista2.innerHTML += "<div class='nums'>" + valor + "</div>";
     });
 }
+
+//--[Ejercicio 5]--
+document.getElementById("ej5").onclick = function () {
+        let randNum = Math.floor(Math.random() * 5) + 1;
+        array.push(randNum);
+        array2.push(randNum);
+        lista.innerHTML += "<div class='nums'>" + randNum + "</div>";
+   
+        lista2.innerHTML += "<div class='nums'>" + randNum + "</div>";
+   
+        lista2.innerHTML += "<div class='nums'>" + randNum + "</div>";
+}

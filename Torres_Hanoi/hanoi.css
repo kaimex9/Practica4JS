@@ -1,0 +1,52 @@
+#glovalDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#secondary {
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+}
+
+.d1,
+.d2,
+.d3 {
+    text-align: center;
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 160px;
+}
+
+.line{
+    background-color: brown;
+    width: 225px;
+    height: 5px;
+}
+
+.n1 {
+    background-color: red;
+    width: 80px;
+}
+.n2 {
+    background-color: orange;
+    width: 100px;
+}
+.n3 {
+    background-color: yellow;
+    width: 120px;
+}
+.n4 {
+    background-color: green;
+    width: 140px;
+}
+.n5 {
+    background-color: blue;
+    width: 160px;
+}
