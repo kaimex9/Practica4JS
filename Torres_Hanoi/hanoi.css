@@ -1,3 +1,23 @@
+.title{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+h1{
+    width: 100%;
+    text-align: center;
+}
+
+h3{
+    width: 100%;
+    text-align: center;
+}
+
+label{
+    justify-content: center;
+}
+
 #glovalDiv {
     display: flex;
     width: 100%;
@@ -24,8 +44,8 @@
 
 .content{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 160px;
 }
 
@@ -57,6 +77,11 @@
 }
 .n5 {
     background-color: blue;
+    width: 160px;
+    height: 20px;
+}
+
+.empty{
     width: 160px;
     height: 20px;
 }
