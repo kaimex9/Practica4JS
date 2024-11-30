@@ -15,6 +15,11 @@ document.getElementById("start").onclick = function () {
     array1 = new Array();
     array2 = new Array();
     array3 = new Array();
+    //Hago que todos los botones reaparezcan en el caso de que hayan desaparecido previamente
+    let buttons = document.querySelectorAll(".buttons");
+    buttons.forEach(function (button) {
+        button.style.display = "inline-block";
+    });
 
     let discos = document.getElementById("numDiscos");
     if (!discos.value) {
@@ -59,6 +64,7 @@ document.getElementById("moveT1-2").onclick = function () {
         updateTower(1);
         updateTower(2);
     }
+    winCondition()
 }
 //Mover de torre 1 a torre 3
 document.getElementById("moveT1-3").onclick = function () {
@@ -70,6 +76,7 @@ document.getElementById("moveT1-3").onclick = function () {
         updateTower(1);
         updateTower(3);
     }
+    winCondition()
 }
 //Mover de torre 2 a torre 1
 document.getElementById("moveT2-1").onclick = function () {
@@ -81,6 +88,7 @@ document.getElementById("moveT2-1").onclick = function () {
         updateTower(2);
         updateTower(1);
     }
+    winCondition()
 }
 //Mover de torre 2 a torre 3
 document.getElementById("moveT2-3").onclick = function () {
@@ -92,6 +100,7 @@ document.getElementById("moveT2-3").onclick = function () {
         updateTower(2);
         updateTower(3);
     }
+    winCondition()
 }
 //Mover de torre 3 a torre 1
 document.getElementById("moveT3-1").onclick = function () {
@@ -103,6 +112,7 @@ document.getElementById("moveT3-1").onclick = function () {
         updateTower(3);
         updateTower(1);
     }
+    winCondition()
 }
 //Mover de torre 3 a torre 2
 document.getElementById("moveT3-2").onclick = function () {
@@ -114,6 +124,7 @@ document.getElementById("moveT3-2").onclick = function () {
         updateTower(3);
         updateTower(2);
     }
+    winCondition()
 }
 //Rellenar torre con relleno
 function refillTower(t) {
@@ -187,4 +198,22 @@ function lastNum(array) {
         }
     }
     return num;
+}
+
+function winCondition() {
+    let win = true;
+    for (let x = 0; x < 5; x++) {
+        if (array1[x] != 0) {
+            win = false
+            break;
+        }
+    }
+    if (win) {
+        noti.innerHTML = "Has ganado! Felicidades!!!";
+        let buttons = document.querySelectorAll(".buttons");
+        buttons.forEach(function (button) {
+            button.style.display = "none";
+        });
+
+    }
 }
