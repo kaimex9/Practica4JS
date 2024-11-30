@@ -49,7 +49,72 @@ document.getElementById("start").onclick = function () {
         }
     }
 }
-
+//Mover de torre 1 a torre 2
+document.getElementById("moveT1-2").onclick = function () {
+    noti.innerHTML = "";
+    if (firstNum(array1) > lastNum(array2) && lastNum(array2) != 0) {
+        noti.innerHTML = "No puedes poner un numero mas grande que el numero de abajo";
+    } else {
+        addValueToArray(array1, array2);
+        updateTower(1);
+        updateTower(2);
+    }
+}
+//Mover de torre 1 a torre 3
+document.getElementById("moveT1-3").onclick = function () {
+    noti.innerHTML = "";
+    if (firstNum(array1) > lastNum(array3) && lastNum(array3) != 0) {
+        noti.innerHTML = "No puedes poner un numero mas grande que el numero de abajo";
+    } else {
+        addValueToArray(array1, array3);
+        updateTower(1);
+        updateTower(3);
+    }
+}
+//Mover de torre 2 a torre 1
+document.getElementById("moveT2-1").onclick = function () {
+    noti.innerHTML = "";
+    if (firstNum(array2) > lastNum(array1) && lastNum(array1) != 0) {
+        noti.innerHTML = "No puedes poner un numero mas grande que el numero de abajo";
+    } else {
+        addValueToArray(array2, array1);
+        updateTower(2);
+        updateTower(1);
+    }
+}
+//Mover de torre 2 a torre 3
+document.getElementById("moveT2-3").onclick = function () {
+    noti.innerHTML = "";
+    if (firstNum(array2) > lastNum(array3) && lastNum(array3) != 0) {
+        noti.innerHTML = "No puedes poner un numero mas grande que el numero de abajo";
+    } else {
+        addValueToArray(array2, array3);
+        updateTower(2);
+        updateTower(3);
+    }
+}
+//Mover de torre 3 a torre 1
+document.getElementById("moveT3-1").onclick = function () {
+    noti.innerHTML = "";
+    if (firstNum(array3) > lastNum(array1) && lastNum(array1) != 0) {
+        noti.innerHTML = "No puedes poner un numero mas grande que el numero de abajo";
+    } else {
+        addValueToArray(array3, array1);
+        updateTower(3);
+        updateTower(1);
+    }
+}
+//Mover de torre 3 a torre 2
+document.getElementById("moveT3-2").onclick = function () {
+    noti.innerHTML = "";
+    if (firstNum(array3) > lastNum(array2) && lastNum(array2) != 0) {
+        noti.innerHTML = "No puedes poner un numero mas grande que el numero de abajo";
+    } else {
+        addValueToArray(array3, array2);
+        updateTower(3);
+        updateTower(2);
+    }
+}
 //Rellenar torre con relleno
 function refillTower(t) {
     t.innerHTML = "";
@@ -57,28 +122,7 @@ function refillTower(t) {
         t.innerHTML += "<div class='empty'></div>";
     }
 }
-
-//Pulsar un boton de la torre1
-document.getElementById("moveT1").onclick = function () {
-    let action = document.getElementById("moveT1").value;
-    if (action == "MUEVE A PILA 2") {
-        //-----------------------------------------
-        for (let i = 0; i < array1.length; i++) {
-            if (array1[i] != 0) {
-                addValueToArray(array1, array2);
-                constructTower(array1, 1);
-                constructTower(array2, 2);
-                break;
-            }
-        }
-        console.log(array1);
-        console.log(array2);
-        //-----------------------------------------
-    } else {
-
-    }
-}
-
+//Cojer el primer valor de un array y meterlo en el primer valor disponible del segundo
 function addValueToArray(a1, a2) {
     let value;
     for (let i = 0; i < a1.length; i++) {
@@ -89,33 +133,58 @@ function addValueToArray(a1, a2) {
         }
     }
     for (let i = 0; i < a2.length; i++) {
-        if (a2[i] == 0) {
+        if (a2[i] == 0 && i == value - 1) {
             a2[i] = value;
             break;
         }
     }
 }
-
-function constructTower(array, towerNum) {
+//Mostrar una torre en orden normal o inverso, depende del parametro action
+function updateTower(towerNum) {
     let selectedT;
+    let array;
     switch (towerNum) {
         case 1:
             selectedT = tower1;
+            array = array1;
             break;
         case 2:
             selectedT = tower2;
+            array = array2;
             break;
         case 3:
             selectedT = tower3;
+            array = array3;
             break;
     }
     selectedT.innerHTML = "";
     for (let x = 0; x < 5; x++) {
         if (array[x] != 0) {
-            selectedT.innerHTML += "<div class='n" + (x + 1) + "'> " + (x + 1) + "</div>";
+            selectedT.innerHTML += "<div class='n" + array[x] + "'> " + array[x] + "</div>";
         } else {
-       
             selectedT.insertAdjacentHTML("afterbegin", "<div class='empty'></div>");
         }
     }
+}
+//Devuelve el primer valor de un array
+function firstNum(array) {
+    let num = 0;
+    for (let i = 0; i < 5; i++) {
+        if (array[i] != 0) {
+            num = array[i];
+            break;
+        }
+    }
+    return num;
+}
+//Devuelve el ultimo valor de un array
+function lastNum(array) {
+    let num = 0;
+    for (let i = 4; i >= 0; i--) {
+        if (array[i] != 0) {
+            num = array[i];
+            break;
+        }
+    }
+    return num;
 }
