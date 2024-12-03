@@ -29,6 +29,7 @@ label{
     display: flex;
     flex-wrap: wrap;
     width: 700px;
+    margin-top: 30px;
 }
 
 .d1,

@@ -10,18 +10,26 @@ let tower3 = document.getElementById("tower3");
 //Contenido de notificacion
 let noti = document.getElementById("notification");
 
+//Oculto todos los botones al cargar la web
+let buttons = document.querySelectorAll(".buttons");
+buttons.forEach(function (button) {
+    button.style.display = "none";
+});
+//Recogo el numero de discos que a introducido el usuario
+let discos = document.getElementById("numDiscos");
+//Funcion que se ejecuta al pulsar el boton Start
 document.getElementById("start").onclick = function () {
     //reiniciamos los valores de los arrrays
     array1 = new Array();
     array2 = new Array();
     array3 = new Array();
+    noti.innerHTML = "";
     //Hago que todos los botones reaparezcan en el caso de que hayan desaparecido previamente
     let buttons = document.querySelectorAll(".buttons");
     buttons.forEach(function (button) {
         button.style.display = "inline-block";
     });
-
-    let discos = document.getElementById("numDiscos");
+    //Compruebo que el valor introducido por el usuario es valido
     if (!discos.value) {
         noti.innerHTML = "Porfavor introduce algun valor";
     } else {
@@ -201,16 +209,16 @@ function lastNum(array) {
 }
 
 function winCondition() {
-    let win = true;
+    let cont = 0;
+    
     for (let x = 0; x < 5; x++) {
-        if (array1[x] != 0) {
-            win = false
-            break;
+        if (array3[x] != 0) {
+            cont++;
         }
     }
+    let win = (cont==discos.value);
     if (win) {
         noti.innerHTML = "Has ganado! Felicidades!!!";
-        let buttons = document.querySelectorAll(".buttons");
         buttons.forEach(function (button) {
             button.style.display = "none";
         });
